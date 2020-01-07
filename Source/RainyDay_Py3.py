@@ -46,7 +46,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 # import RainyDay functions
-import RainyDay_utilities_Py3.RainyDay_functions as RainyDay
+# import RainyDay_utilities_Py3.RainyDay_functions as RainyDay
+from .RainyDay_utilities_Py3 import RainyDay_functions as RainyDay
 
 from numba.types import int32
 
