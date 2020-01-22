@@ -46,8 +46,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 # import RainyDay functions
-# import RainyDay_utilities_Py3.RainyDay_functions as RainyDay  # For local use - debugging
-from .RainyDay_utilities_Py3 import RainyDay_functions as RainyDay  # For deployment in flood_resilience
+import RainyDay_utilities_Py3.RainyDay_functions as RainyDay  # For deployment in flood_resilience
+# from .RainyDay_utilities_Py3 import RainyDay_functions as RainyDay  # For local use - debugging
 
 from numba.types import int32
 
