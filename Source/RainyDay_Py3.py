@@ -46,7 +46,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 # import RainyDay functions
-import RainyDay_utilities_Py3.RainyDay_functions as RainyDay
+import RainyDay_utilities_Py3.RainyDay_functions as RainyDay  # For deployment in flood_resilience
+# from .RainyDay_utilities_Py3 import RainyDay_functions as RainyDay  # For local use - debugging
 
 from numba.types import int32
 
@@ -1853,8 +1854,8 @@ if FreqAnalysis:
         print('Resampling and transposing storm '+str(i+1)+' out of '+str(nstorms)+' ('"{0:0.0f}".format(100*(i+1)/nstorms)+'%)')
         # UNIFORM RESAMPLING
         if transpotype=='uniform' and domain_type=='rectangular':
-            whichx[whichstorms==i]=np.random.randint(0,np.int(rainprop.subdimensions[1])-maskwidth+1,len(whichx[whichstorms==i]))
-            whichy[whichstorms==i]=np.random.randint(0,np.int(rainprop.subdimensions[0])-maskheight+1,len(whichy[whichstorms==i]))
+            whichx[whichstorms==i]=np.random.randint(0,np.int(rainprop.subdimensions[1])-maskwidth+1,(len(whichx[whichstorms==i]),1))
+            whichy[whichstorms==i]=np.random.randint(0,np.int(rainprop.subdimensions[0])-maskheight+1,(len(whichy[whichstorms==i]),1))
      
         # KERNEL-BASED AND INTENSITY-BASED RESAMPLING (ALSO NEEDED FOR IRREGULAR TRANSPOSITION DOMAINS)
         elif transpotype=='kernel':
