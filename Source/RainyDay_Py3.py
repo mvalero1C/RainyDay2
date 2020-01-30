@@ -46,7 +46,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 # import RainyDay functions
-import RainyDay_utilities_Py3.RainyDay_functions as RainyDay  # For deployment in flood_resilience
+from RainyDay.Source.RainyDay_utilities_Py3 import RainyDay_functions as RainyDay  # For deployment in flood_resilience
+# import RainyDay_utilities_Py3.RainyDay_functions as RainyDay  # For deployment in flood_resilience
 # from .RainyDay_utilities_Py3 import RainyDay_functions as RainyDay  # For local use - debugging
 
 from numba.types import int32
@@ -107,7 +108,7 @@ emptyprop=GriddedRainProperties('emptyprop',
 # "MAIN"
 ################################################################################
 
-def rainyday(parameterfile):
+def rainyday_main(parameterfile):
 
     print('''Welcome to RainyDay, a framework for coupling remote sensing precipitation
             fields with Stochastic Storm Transposition for assessment of rainfall-driven hazards.
