@@ -41,9 +41,12 @@ from mpl_toolkits.basemap import Basemap
 numbacheck=True
 
 # plotting stuff, really only needed for diagnostic plots
-import matplotlib
+# import matplotlib
 #matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+from matplotlib.font_manager import FontProperties
+from matplotlib.patches import Polygon
 
 # import RainyDay functions
 from RainyDay.Source.RainyDay_utilities_Py3 import RainyDay_functions as RainyDay  # For deployment in flood_resilience
@@ -1390,7 +1393,6 @@ def rainyday_main(parameterfile):
 
     if DoDiagnostics:
         if areatype.lower()=="box":
-            from matplotlib.patches import Polygon
             def plot_rectangle(bmap, lonmin,lonmax,latmin,latmax):
                 p = Polygon([(lonmin,latmin),(lonmin,latmax),(lonmax,latmax),(lonmax,latmin)],facecolor='grey',edgecolor='black',alpha=0.5,linewidth=2)
                 plt.gca().add_patch(p)
@@ -2234,10 +2236,7 @@ def rainyday_main(parameterfile):
 
             np.savetxt(FreqFile,freqanalysis,delimiter=',',header='prob.exceed,returnperiod,minrain,meanrain,maxrain',fmt='%6.3f',comments='')
 
-            import matplotlib.patches as mpatches
-            from matplotlib.font_manager import FontProperties
-            from matplotlib import pyplot as plt
-           # warnings.filterwarnings('ignore')
+            # warnings.filterwarnings('ignore')
             fontP = FontProperties()
             fontP.set_size('xx-small')
             fig, ax = plt.subplots(1)
@@ -2414,4 +2413,4 @@ if __name__ == '__main__':
     except:
         sys.exit("You didn't specify an input ('.sst') file!")
 
-    rainyday(parameterfile)
+    rainyday_main(parameterfile)
